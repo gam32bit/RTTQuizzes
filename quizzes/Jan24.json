@@ -1,0 +1,12 @@
+{
+    "month": "Jan 2024",
+    "questions": [
+      {
+        "question": "What is the capital of your city?",
+        "options": ["Option A", "Option B", "Option C", "Option D"],
+        "correctOption": 2
+      }
+      
+    ]
+  }
+  
