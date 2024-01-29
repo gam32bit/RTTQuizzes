@@ -6,6 +6,12 @@
         "options": ["Option A", "Option B", "Option C", "Option D"],
         "correctOption": 2,
         "context": "Yes, Option B was founded in 1939, but became the capital in 1960." 
+      },
+      {
+        "question": "What is my favorite pizza topping?",
+        "options": ["Pineapple", "Jalapeno", "Pepperoni", "Ham"],
+        "correctOption": 2,
+        "context": "Pepperoni is my favorite!"
       }
       
     ]
