@@ -20,19 +20,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 const options = questionElement.querySelectorAll('li');
 
                 options.forEach(option => {
-                    option.addEventListener('click', () => handleOptionClick(option, question.correctOption));
+                    option.addEventListener('click', () => handleOptionClick(option, question.correctOption, question.context));
                 });
             });
         })
         .catch(error => console.error('Error fetching JSON:', error));
 
-    function handleOptionClick(selectedOption, correctOption) {
+    function handleOptionClick(selectedOption, correctOption, context) {
         const selectedOptionIndex = parseInt(selectedOption.getAttribute('data-index'), 10);
+        const additionalContextElement = document.querySelector('.additionalcontext');
 
         if (selectedOptionIndex === correctOption) {
             // Correct option chosen
             selectedOption.style.color = 'green';
-            showAdditionalContext('Correct! Additional context goes here.');
+            
         } else {
             // Incorrect option chosen
             selectedOption.style.color = 'red';
@@ -41,12 +42,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const correctOptionElement = selectedOption.parentNode.querySelector(`li[data-index="${correctOption}"]`);
             correctOptionElement.style.color = 'green';
 
-            showAdditionalContext('Incorrect! Additional context goes here.');
+            additionalContextElement.textContent = context;
         }
     }
 
-    function showAdditionalContext(message) {
-        const additionalContextElement = document.querySelector('.additional-context');
-        additionalContextElement.textContent = message;
-    }
 });

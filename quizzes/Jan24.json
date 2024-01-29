@@ -5,7 +5,7 @@
         "question": "What is the capital of your city?",
         "options": ["Option A", "Option B", "Option C", "Option D"],
         "correctOption": 2,
-        "additional-context": "Yes, Option B was founded in 1939, but became the capital in 1960." 
+        "context": "Yes, Option B was founded in 1939, but became the capital in 1960." 
       }
       
     ]

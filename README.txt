@@ -6,4 +6,4 @@
 - I created on a repo on GitHub as well as the starting files and folders.
 - ChatGPT's initial suggestions for CSS look good, got the card format the way I wanted.
 - Figured out how to link button to quiz page and how to get it to load json file with monthly quiz info
-- Need to figure out how to get javascript to load on quiz page.
+- Javascript is loading for quiz page, and highlights work to show correct and incorrect answers, but additional context doesn't show.
