@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch('quizzes/Jan24.json')
         .then(response => response.json())
         .then(data => {
-            document.querySelector('.quiz-title').innerHTML = `<a href="quiz.html">${data.month}</a>`;
+            document.querySelector('.quiz-title').textContent = data.month;
 
             const quizContainer = document.querySelector('.quiz-container');
 
