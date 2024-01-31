@@ -13,7 +13,6 @@
 
 ## To do
 
-
 - When quiz is complete message appears showing final score
 - Add reset capability
 - Add a link to the home page
