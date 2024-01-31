@@ -2,18 +2,23 @@
     "month": "Jan 2024",
     "questions": [
       {
-        "question": "What is the capital of your city?",
-        "options": ["Option A", "Option B", "Option C", "Option D"],
-        "correctOption": 2,
-        "context": "Yes, Option B was founded in 1939, but became the capital in 1960." 
+        "question": "Covid and flu cases were on the rise at the start of this month. What % of VA residents had received a flu shot by the first week of this year?",
+        "options": ["10%", "30%", "50%", "70%"],
+        "correctOption": 1,
+        "context": "Only 30% of VA residents had received flu shots for the current season and only 12% were up to date on their COVID vaccines." 
       },
       {
-        "question": "What is my favorite pizza topping?",
-        "options": ["Pineapple", "Jalapeno", "Pepperoni", "Ham"],
-        "correctOption": 2,
-        "context": "Pepperoni is my favorite!"
+        "question": "WJCC schools implemented a new policy for athletic events. What was it?",
+        "options": ["No candy", "No signs", "No books", "No bags"],
+        "correctOption": 3,
+        "context": "Attendees at division sports events can no longer bring any bags into events and must also pass through CEIA Opengate metal detectors."
+      },
+      {
+        "question": "WJCC schools implemented a new policy for athletic events. What was it?",
+        "options": ["No candy", "No signs", "No books", "No bags"],
+        "correctOption": 3,
+        "context": "Attendees at division sports events can no longer bring any bags into events and must also pass through CEIA Opengate metal detectors."
       }
-      
     ]
   }
   
