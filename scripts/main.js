@@ -17,6 +17,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 `;
                 quizContainer.appendChild(questionElement);
 
+                // Create a new element for additional context
+                const additionalContextElement = document.createElement('div');
+                additionalContextElement.classList.add('additionalcontext');
+                quizContainer.appendChild(additionalContextElement);
+
                 const options = questionElement.querySelectorAll('li');
                 let answerSelected = false;
 
@@ -24,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     option.addEventListener('click', function () {
                         if (!answerSelected) {
                             answerSelected = true;
-                            handleOptionClick(this, question.correctOption, question.context, options);
+                            handleOptionClick(this, question.correctOption, question.context, additionalContextElement, options);
                         }
                     });
                 });
@@ -32,9 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => console.error('Error fetching JSON:', error));
 
-    function handleOptionClick(selectedOption, correctOption, context, options) {
+    function handleOptionClick(selectedOption, correctOption, context, additionalContextElement, options) {
         const selectedOptionIndex = parseInt(selectedOption.getAttribute('data-index'), 10);
-        const additionalContextElement = document.querySelector('.additionalcontext');
 
         if (selectedOptionIndex === correctOption) {
             // Correct option chosen
