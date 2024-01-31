@@ -1,77 +1,131 @@
 document.addEventListener('DOMContentLoaded', function () {
     let correctAnswersCount = 0;
-    let answeredQuestionsCount = 0; // Track the number of questions answered
-    let quizContainer; // Declare quizContainer in the global scope
+    let answeredQuestionsCount = 0;
+    let quizContainer;
+    let quizData;
 
-    fetch('quizzes/Jan24.json')
-        .then(response => response.json())
-        .then(data => {
-            document.querySelector('.quiz-title').textContent = data.month;
+    function initializeQuiz() {
+        let answerSelected = false;
 
-            quizContainer = document.querySelector('.quiz-container'); // Set the global quizContainer
+        fetch('quizzes/Jan24.json')
+            .then(response => response.json())
+            .then(data => {
+                quizData = data;
+                initializeQuizUI();
+            })
+            .catch(error => console.error('Error fetching JSON:', error));
 
-            data.questions.forEach((question, index) => {
-                const questionElement = document.createElement('div');
-                questionElement.classList.add('question');
-                questionElement.innerHTML = `
-                    <p>${index + 1}. ${question.question}</p>
-                    <ul>
-                        ${question.options.map((option, i) => `<li data-index="${i}">${String.fromCharCode(65 + i)}. ${option}</li>`).join('')}
-                    </ul>
-                `;
+        function initializeQuizUI() {
+            document.querySelector('.quiz-title').textContent = quizData.month;
+            quizContainer = document.querySelector('.quiz-container');
+
+            quizData.questions.forEach((question, index) => {
+                const questionElement = createQuestionElement(question, index);
+                const additionalContextElement = createAdditionalContextElement();
+
                 quizContainer.appendChild(questionElement);
-
-                const additionalContextElement = document.createElement('div');
-                additionalContextElement.classList.add('additionalcontext');
                 quizContainer.appendChild(additionalContextElement);
 
                 const options = questionElement.querySelectorAll('li');
-                let answerSelected = false;
 
                 options.forEach(option => {
                     option.addEventListener('click', function () {
-                        if (!answerSelected) {
-                            answerSelected = true;
-                            answeredQuestionsCount++; // Increment the answered questions count
-                            handleOptionClick(this, question.correctOption, question.context, additionalContextElement, options);
-
-                            if (parseInt(this.getAttribute('data-index'), 10) === question.correctOption) {
-                                correctAnswersCount++;
-                            }
-
-                            if (answeredQuestionsCount === data.questions.length) {
-                                displayResultMessage(correctAnswersCount, data.questions.length);
-                            }
-                        }
+                        handleOptionClick(this, question.correctOption, question.context, additionalContextElement, options);
                     });
                 });
             });
-        })
-        .catch(error => console.error('Error fetching JSON:', error));
+        }
 
-    function displayResultMessage(correctCount, totalCount) {
-        const resultMessage = document.createElement('div');
-        resultMessage.classList.add('result-message');
-        resultMessage.textContent = `You got ${correctCount} out of ${totalCount} correct!`;
-        quizContainer.appendChild(resultMessage); // Use the global quizContainer
-    }
+        function createQuestionElement(question, index) {
+            const questionElement = document.createElement('div');
+            questionElement.classList.add('question');
+            questionElement.innerHTML = `
+                <p>${index + 1}. ${question.question}</p>
+                <ul>
+                    ${question.options.map((option, i) => `<li data-index="${i}">${String.fromCharCode(65 + i)}. ${option}</li>`).join('')}
+                </ul>
+            `;
+            return questionElement;
+        }
 
-    function handleOptionClick(selectedOption, correctOption, context, additionalContextElement, options) {
-        const selectedOptionIndex = parseInt(selectedOption.getAttribute('data-index'), 10);
+        function createAdditionalContextElement() {
+            const additionalContextElement = document.createElement('div');
+            additionalContextElement.classList.add('additionalcontext');
+            return additionalContextElement;
+        }
 
-        if (selectedOptionIndex === correctOption) {
-            // Correct option chosen
-            selectedOption.style.color = 'green';
-            additionalContextElement.textContent = context;
-        } else {
-            // Incorrect option chosen
-            selectedOption.style.color = 'red';
+        function handleOptionClick(selectedOption, correctOption, context, additionalContextElement, options) {
+            if (!answerSelected) {
+                answerSelected = true;
+                answeredQuestionsCount++;
+        
+                const selectedOptionIndex = parseInt(selectedOption.getAttribute('data-index'), 10);
+        
+                if (selectedOptionIndex === correctOption) {
+                    // Correct option chosen
+                    selectedOption.style.color = 'green';
+                    additionalContextElement.textContent = context;
+                    correctAnswersCount++;
+                } else {
+                    // Incorrect option chosen
+                    selectedOption.style.color = 'red';
+        
+                    // Highlight the correct option in green
+                    const correctOptionElement = selectedOption.parentNode.querySelector(`li[data-index="${correctOption}"]`);
+                    correctOptionElement.style.color = 'green';
+        
+                    additionalContextElement.textContent = context;
+                }
+        
+                if (answeredQuestionsCount === quizData.questions.length) {
+                    displayResultMessage(correctAnswersCount, quizData.questions.length);
+                }
+        
+                // Reset the answerSelected flag for the next question
+                answerSelected = false;
+            }
+        }
 
-            // Highlight the correct option in green
-            const correctOptionElement = selectedOption.parentNode.querySelector(`li[data-index="${correctOption}"]`);
-            correctOptionElement.style.color = 'green';
+        function resetQuiz() {
+            // Reset the quiz by removing the result message, resetting counters, and clearing styles
+            const resultMessage = quizContainer.querySelector('.result-message');
+            if (resultMessage) {
+                quizContainer.removeChild(resultMessage);
+            }
 
-            additionalContextElement.textContent = context;
+            correctAnswersCount = 0;
+            answeredQuestionsCount = 0;
+
+            const options = quizContainer.querySelectorAll('.question li');
+            options.forEach(option => {
+                option.style.color = ''; // Reset text color
+            });
+
+            // Reset the answerSelected flag
+            answerSelected = false;
+
+            // Clear additional context for each question
+            const additionalContextElements = quizContainer.querySelectorAll('.additionalcontext');
+            additionalContextElements.forEach(element => {
+                element.textContent = '';
+            });
+        }
+
+        function displayResultMessage(correctCount, totalCount) {
+            const resultMessage = document.createElement('div');
+            resultMessage.classList.add('result-message');
+            resultMessage.textContent = `You got ${correctCount} out of ${totalCount} correct!`;
+
+            // Create and append the reset button
+            const resetButton = document.createElement('button');
+            resetButton.textContent = 'Reset Quiz';
+            resetButton.addEventListener('click', resetQuiz);
+            resultMessage.appendChild(resetButton);
+
+            quizContainer.appendChild(resultMessage);
         }
     }
+
+    // Kickstart the quiz initialization
+    initializeQuiz();
 });
