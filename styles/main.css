@@ -23,6 +23,13 @@ main {
     margin: 20px auto;
 }
 
+.additionalcontext {
+    margin-top: 0px; /* Add a top margin to create space between context and the next question */
+    font-size: 16px; /* Adjust the font size if needed */
+    padding: 15px; /* Add padding for additional spacing */
+    
+}
+
 .quiz-gallery {
     display: flex;
     flex-wrap: wrap;
@@ -84,7 +91,7 @@ h3 {
 }
 
 .question {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     background-color: #fff;
     border-radius: 8px;
     overflow: hidden;

@@ -10,6 +10,7 @@
 - highlights work to show correct and incorrect answers, and additional context by adding html element (is this best solution?)
 - Got visual feedback to stop after first selection by adding a "flag" which is a boolean that checks is an answer has been selected and then removes event listeners
 - Made additional context appear below relevant question by adding element within quiz container
+
 ## To do
 
 
