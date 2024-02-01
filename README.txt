@@ -16,8 +16,15 @@
 
 ##TO DO
 - Add a link to the home page
-- adjust styling
-- Set up hosting on GitHub
+- adjust styling for reset button
+- add email hyperlink functionality
+- embed Google Analytics
+- put thumbnail preview in header
+- Create actual ReadME
+- add source hyperlink underneath additional context
+- add capability to include photo in additional context or above question
+- Fix css on home page so that # cards in row adapts to screen size
+- Figure out how to load different quizzes depending on which button on the home page is pressed.
 
 ## Bonus
 
