@@ -1,5 +1,5 @@
 {
-    "month": "Jan 2024",
+    "month": "January 2024",
     "questions": [
       {
         "question": "Covid and flu cases were on the rise at the start of this month. What % of VA residents had received a flu shot by the first week of this year?",
@@ -32,7 +32,7 @@
         "context": "Only 2 are being investigated by a third party, one involving James City County Police who fired at a 83-year-old man earlier this month."
       },
       {
-        "question": "Data from eBird.org shows a steady decline of birds in North America over the past half century. In Williamsburg, which species saw the most dramtic decline of sightings?",
+        "question": "Data from eBird.org shows a steady decline of birds in North America over the past half century. In Williamsburg, which species saw the most dramatic decline of sightings?",
         "options": ["Royal Tern", "Canvasback", "Bufflehead", "Herring Gull"],
         "correctOption": 1,
         "context": "Canvasback sightings declined by 36% in Williamsburg over the past 50 years."
@@ -40,7 +40,7 @@
       {
         "question": "WJCC teachers and staff will be joining colleagues in Richmond on Feb. 19 to protest the governor's education budget, which raises teacher salaries by what percent?",
         "options": ["0%", "0.2%", "1%", "2%"],
-        "correctOption": 1,
+        "correctOption": 0,
         "context": "The budget provides a 0.2% increase in funding for WJCC schools, but no money for teacher raises." 
       },
       {
