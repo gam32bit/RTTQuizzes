@@ -12,10 +12,10 @@
 - Made additional context appear below relevant question by adding element within quiz container
 - When quiz is complete message appears showing final score, had to change scope of some variables
 - Added reset capability, needed to make sure that variables were properly reset
+- Fixed bug with multiple selections being made on one question by adding an "answered" class to keep track of selections made per question
 
 ##TO DO
 - Add a link to the home page
-- Come up with quiz questions
 - adjust styling
 - Set up hosting on GitHub
 
