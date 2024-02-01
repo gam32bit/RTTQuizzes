@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let quizData;
 
     function initializeQuiz() {
-        let answerSelected = false;
-
         fetch('quizzes/Jan24.json')
             .then(response => response.json())
             .then(data => {
@@ -30,7 +28,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 options.forEach(option => {
                     option.addEventListener('click', function () {
-                        handleOptionClick(this, question.correctOption, question.context, additionalContextElement, options);
+                        // Pass the selected option and its related variables to the handler
+                        handleOptionClick(this, question.correctOption, question.context, additionalContextElement, options, questionElement);
                     });
                 });
             });
@@ -54,35 +53,37 @@ document.addEventListener('DOMContentLoaded', function () {
             return additionalContextElement;
         }
 
-        function handleOptionClick(selectedOption, correctOption, context, additionalContextElement, options) {
-            if (!answerSelected) {
-                answerSelected = true;
-                answeredQuestionsCount++;
-        
-                const selectedOptionIndex = parseInt(selectedOption.getAttribute('data-index'), 10);
-        
-                if (selectedOptionIndex === correctOption) {
-                    // Correct option chosen
-                    selectedOption.style.color = 'green';
-                    additionalContextElement.textContent = context;
-                    correctAnswersCount++;
-                } else {
-                    // Incorrect option chosen
-                    selectedOption.style.color = 'red';
-        
-                    // Highlight the correct option in green
-                    const correctOptionElement = selectedOption.parentNode.querySelector(`li[data-index="${correctOption}"]`);
-                    correctOptionElement.style.color = 'green';
-        
-                    additionalContextElement.textContent = context;
-                }
-        
-                if (answeredQuestionsCount === quizData.questions.length) {
-                    displayResultMessage(correctAnswersCount, quizData.questions.length);
-                }
-        
-                // Reset the answerSelected flag for the next question
-                answerSelected = false;
+        function handleOptionClick(selectedOption, correctOption, context, additionalContextElement, options, questionElement) {
+            // Check if the question has already been answered
+            if (questionElement.classList.contains('answered')) {
+                return;
+            }
+
+            const selectedOptionIndex = parseInt(selectedOption.getAttribute('data-index'), 10);
+
+            if (selectedOptionIndex === correctOption) {
+                // Correct option chosen
+                selectedOption.style.color = 'green';
+                additionalContextElement.textContent = context;
+                correctAnswersCount++;
+            } else {
+                // Incorrect option chosen
+                selectedOption.style.color = 'red';
+
+                // Highlight the correct option in green
+                const correctOptionElement = selectedOption.parentNode.querySelector(`li[data-index="${correctOption}"]`);
+                correctOptionElement.style.color = 'green';
+
+                additionalContextElement.textContent = context;
+            }
+
+            answeredQuestionsCount++;
+
+            // Mark the question as answered to prevent further clicks
+            questionElement.classList.add('answered');
+
+            if (answeredQuestionsCount === quizData.questions.length) {
+                displayResultMessage(correctAnswersCount, quizData.questions.length);
             }
         }
 
@@ -96,13 +97,16 @@ document.addEventListener('DOMContentLoaded', function () {
             correctAnswersCount = 0;
             answeredQuestionsCount = 0;
 
+            // Remove the 'answered' class for each question
+            const questions = quizContainer.querySelectorAll('.question');
+            questions.forEach(question => {
+                question.classList.remove('answered');
+            });
+
             const options = quizContainer.querySelectorAll('.question li');
             options.forEach(option => {
                 option.style.color = ''; // Reset text color
             });
-
-            // Reset the answerSelected flag
-            answerSelected = false;
 
             // Clear additional context for each question
             const additionalContextElements = quizContainer.querySelectorAll('.additionalcontext');
