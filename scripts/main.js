@@ -4,14 +4,43 @@ document.addEventListener('DOMContentLoaded', function () {
     let quizContainer;
     let quizData;
 
-    function initializeQuiz() {
-        fetch('quizzes/Jan24.json')
+    async function fetchQuizList() {
+        try {
+            const response = await fetch('quizzes/quiz_list.json');
+            const quizList = await response.json();
+            return quizList;
+        } catch (error) {
+            console.error('Error fetching quiz list:', error);
+        }
+    }
+
+    function updateQuizGallery(quizList) {
+        const quizGallery = document.querySelector('.quiz-gallery');
+        quizGallery.innerHTML = ''; // Clear existing quiz cards
+
+        quizList.forEach(quiz => {
+            const quizCard = document.createElement('div');
+            quizCard.classList.add('quiz-card');
+            quizCard.innerHTML = ` 
+                <img src="img/${quiz.image}" alt="${quiz.title} Quiz">
+                <div class="quiz-info">
+                    <h3>${quiz.title}</h3> 
+                    <button class="take-quiz-btn" data-quizfile="${quiz.filename}">Take Quiz</button> 
+                </div>
+            `;
+            quizGallery.appendChild(quizCard);
+        });
+    }
+
+    function initializeQuiz(quizFilename) {
+        fetch(`quizzes/${quizFilename}`)
             .then(response => response.json())
             .then(data => {
                 quizData = data;
                 initializeQuizUI();
             })
             .catch(error => console.error('Error fetching JSON:', error));
+    }
 
         function initializeQuizUI() {
             document.querySelector('.quiz-title').textContent = quizData.month;
@@ -128,8 +157,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
             quizContainer.appendChild(resultMessage);
         }
-    }
 
-    // Kickstart the quiz initialization
-    initializeQuiz();
-});
+        document.addEventListener('DOMContentLoaded', async function () {
+            const quizList = await fetchQuizList();
+            updateQuizGallery(quizList);
+    
+            // Event delegation for handling quiz selection
+            document.querySelector('.quiz-gallery').addEventListener('click', (event) => {
+                if (event.target.classList.contains('take-quiz-btn')) {
+                    const quizFilename = event.target.getAttribute('data-quizfile');
+                    window.location.href = 'quiz.html?quiz=' + quizFilename; 
+                }
+            });
+        });
+    });
