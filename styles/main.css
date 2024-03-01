@@ -1,6 +1,4 @@
 /* Reset some default styles */
-
-
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
@@ -24,10 +22,9 @@ main {
 }
 
 .additionalcontext {
-    margin-top: 0px; /* Add a top margin to create space between context and the next question */
+    margin-top: 10px; /* Add a top margin to create space between context and the next question */
     font-size: 16px; /* Adjust the font size if needed */
     padding: 15px; /* Add padding for additional spacing */
-    
 }
 
 .result-message {
@@ -36,7 +33,6 @@ main {
     text-align: center;
     color: #333;
 }
-
 
 .quiz-gallery {
     display: flex;
@@ -58,7 +54,6 @@ main {
 }
 
 .quiz-card img {
-    
     height: 200px;
     object-fit: cover;
 }
@@ -79,16 +74,17 @@ h3 {
     font-size: 16px;
 }
 
-.take-quiz-btn {
+.take-quiz-btn, .result-message button {
     background-color: #4CAF50;
     color: #fff;
     padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px; /* Match the font size with the take quiz button */
 }
 
-.take-quiz-btn:hover {
+.take-quiz-btn:hover, .result-message button:hover {
     background-color: #45a049;
 }
 
@@ -99,16 +95,11 @@ h3 {
 }
 
 .question {
-    margin-bottom: 0px;
+    margin-bottom: 20px; /* Add space between questions */
     background-color: #fff;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-}
-
-.question:hover {
-    transform: scale(1.02);
 }
 
 .question p {
