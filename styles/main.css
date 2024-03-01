@@ -22,9 +22,9 @@ main {
 }
 
 .additionalcontext {
-    margin-top: 10px; /* Add a top margin to create space between context and the next question */
+    margin-top: 0px; /* Add a top margin to create space between context and the next question */
     font-size: 16px; /* Adjust the font size if needed */
-    padding: 15px; /* Add padding for additional spacing */
+    padding: 10px; /* Add padding for additional spacing */
 }
 
 .result-message {
@@ -32,6 +32,7 @@ main {
     font-size: 24px;
     text-align: center;
     color: #333;
+    margin-bottom: 20px; /* Add space between the result message and the Reset Quiz button */
 }
 
 .quiz-gallery {
@@ -88,6 +89,10 @@ h3 {
     background-color: #45a049;
 }
 
+.result-message {
+    padding: 20px;
+}
+
 .quiz-title {
     font-size: 36px;
     text-align: center;
@@ -100,6 +105,7 @@ h3 {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
 }
 
 .question p {

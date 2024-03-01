@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     function displayResultMessage(correctCount, totalCount) {
         const resultMessage = document.createElement('div');
         resultMessage.classList.add('result-message');
-        resultMessage.textContent = `You got ${correctCount} out of ${totalCount} correct!`;
+        resultMessage.textContent = `You got ${correctCount} out of ${totalCount} correct!      `;
 
         const resetButton = document.createElement('button');
         resetButton.textContent = 'Reset Quiz';
