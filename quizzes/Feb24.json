@@ -33,9 +33,9 @@
     },
     {
       "question": "Campaign finance reform bills once again failed to gain traction in the General Assembly. How much did the most expensive VA State Senate race cost in 2023?",
-      "options": ["$1,815,053", "$4,333,000", "$6,595,811", "$11,971,130"],
+      "options": ["$4,530,370", "$6,274,939", "$11,971,130", "$15,688,235"],
       "correctOption": 2,
-      "context": "The most expensive race was in SD 31 (Loudoun/Fauquier), where Democrat Russet Perry won over Juan Pablo Segura."
+      "context": "The most expensive race was in SD 31 (Loudoun/Fauquier), where Democrat Russet Perry won over Republican Juan Pablo Segura."
     },
     {
       "question": "The new York County school board chair has been accused of having controversial ties to what?",
