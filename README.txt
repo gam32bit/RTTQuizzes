@@ -1,4 +1,4 @@
-# Round the Triangle - Monthly Quizzes
+#Round the Triangle - Monthly Quizzes
 
 Welcome to the repository for the "Round the Triangle" Monthly Quizzes! This project is a simple, interactive quiz website built with HTML, CSS, and JavaScript. It's designed to be easily customizable, allowing you to create your own quizzes on any topic.
 
