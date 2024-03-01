@@ -77,9 +77,11 @@ document.addEventListener('DOMContentLoaded', async function () {
             <p>${index + 1}. ${question.question}</p>
             <ul>
                 ${question.options.map((option, i) => {
-                    // Add data-id attribute only for the first question's options
-                    const optionIdAttribute = index === 0 ? ` data-id="${option.id}"` : '';
-                    return `<li data-index="${i}"${optionIdAttribute}>${String.fromCharCode(65 + i)}. ${option.text}</li>`;
+                    // Check if option is an object with id and text properties
+                    const isOptionObject = typeof option === 'object' && 'text' in option;
+                    const optionText = isOptionObject ? option.text : option;
+                    const optionIdAttribute = index === 0 && isOptionObject ? ` data-id="${option.id}"` : '';
+                    return `<li data-index="${i}"${optionIdAttribute}>${String.fromCharCode(65 + i)}. ${optionText}</li>`;
                 }).join('')}
             </ul>
         `;
