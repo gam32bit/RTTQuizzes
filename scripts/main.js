@@ -77,10 +77,9 @@ document.addEventListener('DOMContentLoaded', async function () {
             <p>${index + 1}. ${question.question}</p>
             <ul>
                 ${question.options.map((option, i) => {
-                    // Check if option is an object with id and text properties
-                    const isOptionObject = typeof option === 'object' && 'text' in option;
-                    const optionText = isOptionObject ? option.text : option;
-                    const optionIdAttribute = index === 0 && isOptionObject ? ` data-id="${option.id}"` : '';
+                    const optionText = typeof option === 'object' ? option.text : option;
+                    const optionId = typeof option === 'object' ? option.id : `option${i}`;
+                    const optionIdAttribute = ` data-id="${optionId}"`;
                     return `<li data-index="${i}"${optionIdAttribute}>${String.fromCharCode(65 + i)}. ${optionText}</li>`;
                 }).join('')}
             </ul>
@@ -89,6 +88,14 @@ document.addEventListener('DOMContentLoaded', async function () {
         questionElement.appendChild(additionalContextElement);
         addOptionClickHandlers(question, questionElement, additionalContextElement);
         return questionElement;
+    }
+    
+    function selectOptionForFirstQuestion(optionId) {
+        const firstQuestionElement = document.querySelector('.question');
+        const optionElement = firstQuestionElement.querySelector(`li[data-id="${optionId}"]`);
+        if (optionElement) {
+            optionElement.click();
+        }
     }
 
     function createAdditionalContextElement() {
