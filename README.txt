@@ -1,31 +1,34 @@
-#Website featuring interactive monthly quizzes for the Round the Triangle newsletter
+# Round the Triangle - Monthly Quizzes
 
-## Getting Started
+Welcome to the repository for the "Round the Triangle" Monthly Quizzes! This project is a simple, interactive quiz website built with HTML, CSS, and JavaScript. It's designed to be easily customizable, allowing you to create your own quizzes on any topic.
 
-- I talked with ChatGPT to brainstorm how to go about this project and how to structure the repo. 
-- I created on a repo on GitHub as well as the starting files and folders.
-- ChatGPT's initial suggestions for CSS look good, got the card format the way I wanted.
-- Figured out how to link button to quiz page and how to get it to load json file with monthly quiz info
-- Got Javascript to load for quiz page, which involved adding html elements to the quiz page
-- highlights work to show correct and incorrect answers, and additional context by adding html element (is this best solution?)
-- Got visual feedback to stop after first selection by adding a "flag" which is a boolean that checks is an answer has been selected and then removes event listeners
-- Made additional context appear below relevant question by adding element within quiz container
-- When quiz is complete message appears showing final score, had to change scope of some variables
-- Added reset capability, needed to make sure that variables were properly reset
-- Fixed bug with multiple selections being made on one question by adding an "answered" class to keep track of selections made per question
+## How It Works
 
-##TO DO
-- Add a link to the home page
-- adjust styling for reset button
-- add email hyperlink functionality
-- embed Google Analytics
-- put thumbnail preview in header
-- Create actual ReadME
-- add source hyperlink underneath additional context
-- add capability to include photo in additional context or above question
-- Fix css on home page so that # cards in row adapts to screen size
-- Figure out how to load different quizzes depending on which button on the home page is pressed.
+The website consists of a main home page that displays a gallery of available quizzes. Each quiz is loaded dynamically from a JSON file, making it easy to add, remove, or update quizzes without modifying the HTML.
 
-## Bonus
+When a user selects a quiz, they are taken to a quiz page where the questions and options are presented one at a time. The user's answers are checked against the correct answers stored in the JSON file, and a score is displayed at the end.
 
-- showing average score at end
+## Using This Project for Your Own Quiz Website
+
+To use this project as a template for your own quiz website, follow these steps:
+
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/gam32bit/RTTQuizzes.git
+
+2.  Customize the Quizzes:
+- Add your own quizzes by creating new JSON files in the quizzes directory. Each quiz should follow the format shown in the existing quiz_list.json file.
+- Update the quiz_list.json file to include your new quizzes, specifying the filename, title, and image for each quiz.
+
+3. Modify the Styles:
+- Customize the appearance of your quiz website by editing the styles/main.css file.
+
+4. Deploy Your Website:
+- To host your website on GitHub Pages, follow these steps:
+4.1. Push your repository to GitHub.
+4.2. Go to your repository's settings on GitHub.
+4.3. Navigate to the "Pages" section.
+4.4. Select the branch you want to deploy from (usually main or master) and the root folder.
+4.5. Click "Save", and GitHub will provide you with a link to your live website.
+
+Email me at jwcat757@gmail.com with any questions!
