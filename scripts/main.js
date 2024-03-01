@@ -76,7 +76,11 @@ document.addEventListener('DOMContentLoaded', async function () {
         questionElement.innerHTML = `
             <p>${index + 1}. ${question.question}</p>
             <ul>
-                ${question.options.map((option, i) => `<li data-index="${i}" data-id="${option.id}">${String.fromCharCode(65 + i)}. ${option.text}</li>`).join('')}
+                ${question.options.map((option, i) => {
+                    // Add data-id attribute only for the first question's options
+                    const optionIdAttribute = index === 0 ? ` data-id="${option.id}"` : '';
+                    return `<li data-index="${i}"${optionIdAttribute}>${String.fromCharCode(65 + i)}. ${option.text}</li>`;
+                }).join('')}
             </ul>
         `;
         const additionalContextElement = createAdditionalContextElement();
