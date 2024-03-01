@@ -7,7 +7,7 @@
         {"text": "Alexandria", "id": "a"},
         {"text": "Baltimore", "id": "b"},
         {"text": "Charleston", "id": "c"},
-        {"text": "Norfolk", "id": "d"},
+        {"text": "Norfolk", "id": "d"}
       ],
       "correctOption": 3,
       "context": "The group Preserve Yorktown collected thousands of signatures in an online petition protesting the stop."
