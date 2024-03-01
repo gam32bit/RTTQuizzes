@@ -16,7 +16,7 @@
       "question": "The General Assembly has moved to end legacy admissions at public universities. How many times more likely is a legacy student from a top 1% income household to get into an Ivy Plus school than the average student?",
       "options": ["2 times", "3 times", "4 times", "5 times"],
       "correctOption": 3,
-      "context": "The Harvard study also found that legacy students from families below the 90th percentile of income are 3 times as likely to be admitted to colleges than peers with similar academic and demographic characteristics."
+      "context": "The Harvard study found that while legacy students from the top 1% were 5 times as likely to be admitted, legacy students from the bottom 90% were still 3 times as likely to be admitted than peers with similar academic and demographic characteristics."
     },
     {
       "question": "A new report showed that since 2020, Williamsburg’s population decreased by 2%, whereas James City County’s population grew by 3%. How did the population of Hampton Roads change overall during the past couple of decades?",
