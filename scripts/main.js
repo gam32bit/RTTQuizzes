@@ -46,6 +46,13 @@ document.addEventListener('DOMContentLoaded', async function () {
             }
             quizData = await response.json();
             initializeQuizUI();
+
+            // Automatically select the first question's option if specified in the URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const selectedOptionId = urlParams.get('option');
+            if (selectedOptionId) {
+                selectOptionForFirstQuestion(selectedOptionId);
+            }
         } catch (error) {
             console.error('Error loading quiz:', error);
             displayErrorMessage('There was a problem loading the quiz. Please try again later.');
@@ -69,7 +76,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         questionElement.innerHTML = `
             <p>${index + 1}. ${question.question}</p>
             <ul>
-                ${question.options.map((option, i) => `<li data-index="${i}">${String.fromCharCode(65 + i)}. ${option}</li>`).join('')}
+                ${question.options.map((option, i) => `<li data-index="${i}" data-id="${option.id}">${String.fromCharCode(65 + i)}. ${option.text}</li>`).join('')}
             </ul>
         `;
         const additionalContextElement = createAdditionalContextElement();
@@ -122,7 +129,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     function displayResultMessage(correctCount, totalCount) {
         const resultMessage = document.createElement('div');
         resultMessage.classList.add('result-message');
-        resultMessage.textContent = `You got ${correctCount} out of ${totalCount} correct!      `;
+        resultMessage.textContent = `You got ${correctCount} out of ${totalCount} correct!`;
 
         const resetButton = document.createElement('button');
         resetButton.textContent = 'Reset Quiz';
@@ -138,6 +145,14 @@ document.addEventListener('DOMContentLoaded', async function () {
         correctAnswersCount = 0;
         answeredQuestionsCount = 0;
         initializeQuizUI();
+    }
+
+    function selectOptionForFirstQuestion(optionId) {
+        const firstQuestionElement = document.querySelector('.question');
+        const optionElement = firstQuestionElement.querySelector(`li[data-id="${optionId}"]`);
+        if (optionElement) {
+            optionElement.click();
+        }
     }
 
     // Logic to handle quiz selection
