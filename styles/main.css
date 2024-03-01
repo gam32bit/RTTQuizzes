@@ -24,6 +24,9 @@ main {
 .additionalcontext {
     margin-top: 0px; /* Add a top margin to create space between context and the next question */
     font-size: 16px; /* Adjust the font size if needed */
+    font-weight: 500;
+    font-style: italic;
+    background-color: #f0f0f0;
     padding: 10px; /* Add padding for additional spacing */
 }
 
