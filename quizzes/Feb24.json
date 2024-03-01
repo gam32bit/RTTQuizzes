@@ -1,54 +1,53 @@
 {
-    "month": "January 2024",
-    "questions": [
-      {
-        "question": "Covid and flu cases were on the rise at the start of this month. What % of VA residents had received a flu shot by the first week of this year?",
-        "options": ["10%", "30%", "50%", "70%"],
-        "correctOption": 1,
-        "context": "Only 30% of VA residents had received flu shots for the current season and only 12% were up to date on their COVID vaccines." 
-      },
-      {
-        "question": "WJCC schools implemented a new policy for athletic events. What was it?",
-        "options": ["No candy", "No signs", "No books", "No bags"],
-        "correctOption": 3,
-        "context": "Attendees at division sports events can no longer bring any bags into events and must also pass through CEIA Opengate metal detectors."
-      },
-      {
-        "question": "Federal authorities believe they identified the killer behind at least one case of the Colonial Parkway Murders this month. Where was he from?",
-        "options": ["Eastern Shore", "James City County", "Northern Neck", "York County"],
-        "correctOption": 2,
-        "context": "The now-deceased Alan Wilmer was a waterman from the Northern Neck and responsible for the deaths of of David Knobling, Robin Edwards and Teresa Howell in the late 1980s based on DNA evidence."
-      },
-      {
-        "question": "The 2024 VA General Assembly sets a new standard for diversity, with Don Scott being the first Black Speaker of the House ever. Which district does he represent?",
-        "options": ["88th - Portsmouth", "5th - Alexandria", "11th - Fairfax", "25th - Prince William"],
-        "correctOption": 0,
-        "context": "Scott is a Democrat from Portsmouth. There are also a record 15 women in the Senate and 32 members of the Legislative Black Caucus." 
-      },
-      {
-        "question": "Hampton Roads saw 6 police shootings between Dec. 19 and Jan. 19. How many are being investigated by an independent third party?",
-        "options": ["0", "2", "4", "6"],
-        "correctOption": 1,
-        "context": "Only 2 are being investigated by a third party, one involving James City County Police who fired at a 83-year-old man earlier this month."
-      },
-      {
-        "question": "Data from eBird.org shows a steady decline of birds in North America over the past half century. In Williamsburg, which species saw the most dramatic decline of sightings?",
-        "options": ["Royal Tern", "Canvasback", "Bufflehead", "Herring Gull"],
-        "correctOption": 1,
-        "context": "Canvasback sightings declined by 36% in Williamsburg over the past 50 years."
-      },
-      {
-        "question": "WJCC teachers and staff will be joining colleagues in Richmond on Feb. 19 to protest the governor's education budget, which raises teacher salaries by what percent?",
-        "options": ["0%", "0.2%", "1%", "2%"],
-        "correctOption": 0,
-        "context": "The budget provides a 0.2% increase in funding for WJCC schools, but no money for teacher raises." 
-      },
-      {
-        "question": "The Virginia Habitat Connectivity Hub helps residents explore data related to highway safety. How many drivers hit animals in Virginia in 2022 according to State Farm?",
-        "options": ["550", "1,600", "3,300", "6,100"],
-        "correctOption": 3,
-        "context": "There were 6,100 reported collisions, killing 4 people and injuring over 500."
-      }
-    ]
-  }
-  
+  "month": "February 2024",
+  "questions": [
+    {
+      "question": "This month, Princess Cruises announced that the Island Princess cruise ship would no longer be making a stop in Yorktown after months of opposition efforts by a community group. Where will the cruise ship be stopping instead?",
+      "options": ["Alexandria", "Baltimore", "Charleston", "Norfolk"],
+      "correctOption": 3,
+      "context": "The group Preserve Yorktown collected thousands of signatures in an online petition protesting the stop."
+    },
+    {
+      "question": "The General Assembly has moved to end legacy admissions at public universities. How many times more likely is a legacy student from a top 1% income household to get into an Ivy Plus school than the average student?",
+      "options": ["2 times", "3 times", "4 times", "5 times"],
+      "correctOption": 3,
+      "context": "The Harvard study also found that legacy students from families below the 90th percentile of income are 3 times as likely to be admitted to colleges than peers with similar academic and demographic characteristics."
+    },
+    {
+      "question": "A new report showed that since 2020, Williamsburg’s population decreased by 2%, whereas James City County’s population grew by 3%. How did the population of Hampton Roads change overall during the past couple of decades?",
+      "options": ["Declined a lot", "Declined a little", "Increased a little", "Increased a lot"],
+      "correctOption": 1,
+      "context": "An ODU report found that the region’s share of Virginia’s total population dropped 3.6% from 1990 to 2022."
+    },
+    {
+      "question": "The Navy began investigating drinking wells in Chesapeake for toxic substances after they were discovered at a nearby base last year. What other bases will the Navy be testing for these substances?",
+      "options": ["Norfolk Naval Shipyard", "Naval Air Station Oceana", "Naval Weapons Station Cheatham Annex", "All of the Above"],
+      "correctOption": 3,
+      "context": "The Navy is testing at several other bases in the region, suspecting that the polyfluoroalkyl substances may have come from past use of firefighting foam."
+    },
+    {
+      "question": "The ACLU filed two lawsuits against the VA Department of Education this month. What were the lawsuits concerning?",
+      "options": ["Book Bans", "Transgender Student Rights", "Parents’ Rights", "School Board Regulations"],
+      "correctOption": 1,
+      "context": "The lawsuits allege that the controversial 2023 Model Policies on the treatment of transgender and non-binary students don’t comply with existing state law."
+    },
+    {
+      "question": "Campaign finance reform bills once again failed to gain traction in the General Assembly. How much did the most expensive VA State Senate race cost in 2023?",
+      "options": ["$1,815,053", "$4,333,000", "$6,595,811", "$11,971,130"],
+      "correctOption": 2,
+      "context": "The most expensive race was in SD 31 (Loudoun/Fauquier), where Democrat Russet Perry won over Juan Pablo Segura."
+    },
+    {
+      "question": "The new York County school board chair has been accused of having controversial ties to what?",
+      "options": ["A black market bakery", "A rightwing militia", "A corrupt clown company", "A deceptive dumping site"],
+      "correctOption": 1,
+      "context": "Chair Lynda Fairman allegedly directed members of the 'York County Poquoson Constitutional Militia' to film a Family Life Sex Education event at Dare Elementary last month."
+    },
+    {
+      "question": "William & Mary Law School student workers have been organizing for better wages. How much do they currently make?",
+      "options": ["$12/hour", "$15/hour", "$18/hour", "$20/hour"],
+      "correctOption": 0,
+      "context": "Limited to only working 16 hours a week has forced some student workers to sign up for food stamps."
+    }
+  ]
+}
