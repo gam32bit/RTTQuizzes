@@ -14,19 +14,11 @@
 
     <main>
         <h3 class="quiz-title"></h3>
-        <div class="quiz-container"></div>
-        <div class="additionalcontext"></div>
+        <div class="quiz-container">
+            <!-- Questions and additional context elements will be generated dynamically here -->
+        </div>
     </main>
 
     <script src="scripts/main.js"></script>
-    <script>
-        // *** URL parameter handling ***
-        const urlParams = new URLSearchParams(window.location.search);
-        const selectedQuiz = urlParams.get('quiz');
-
-        // Use the 'selectedQuiz' variable to fetch and initialize the quiz
-        // You'll likely add a call to your 'initializeQuiz' function here, 
-        // passing the 'selectedQuiz' filename.  
-    </script>
 </body>
 </html>

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     async function fetchQuizList() {
         try {
-            const response = await fetch('/quizzes/quiz_list.json');
+            const response = await fetch('quizzes/quiz_list.json');
             return await response.json();
         } catch (error) {
             console.error('Error fetching quiz list:', error);
@@ -15,22 +15,24 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     function updateQuizGallery(quizList) {
         const quizGallery = document.querySelector('.quiz-gallery');
-        quizGallery.innerHTML = ''; // Clear existing quiz cards
+        if (quizGallery) {
+            quizGallery.innerHTML = ''; // Clear existing quiz cards
 
-        quizList.forEach(quiz => {
-            const quizCard = createQuizCardElement(quiz);
-            quizGallery.appendChild(quizCard);
-        });
+            quizList.forEach(quiz => {
+                const quizCard = createQuizCardElement(quiz);
+                quizGallery.appendChild(quizCard);
+            });
+        }
     }
 
     function createQuizCardElement(quiz) {
         const quizCard = document.createElement('div');
         quizCard.classList.add('quiz-card');
         quizCard.innerHTML = ` 
-            <img src="/img/${quiz.image}" alt="${quiz.title} Quiz"> 
+            <img src="img/${quiz.image}" alt="${quiz.title} Quiz"> 
             <div class="quiz-info">
                 <h3>${quiz.title}</h3> 
-                <button class="take-quiz-btn" data-quizfile="${quiz.filename}">Take Quiz</button> 
+                <a href="quiz.html?quiz=${quiz.filename}" class="take-quiz-btn">Take Quiz</a>
             </div>
         `;
         return quizCard;
@@ -38,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     async function initializeQuiz(quizFilename) {
         try {
-            const response = await fetch(`/quizzes/${quizFilename}`);
+            const response = await fetch(`quizzes/${quizFilename}`);
             if (!response.ok) {
                 throw new Error(`Error fetching quiz data: ${response.status}`);
             }
@@ -51,15 +53,13 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     function initializeQuizUI() {
-        document.querySelector('.quiz-title').textContent = quizData.month;
+        document.querySelector('.quiz-title').textContent = quizData.title;
         quizContainer = document.querySelector('.quiz-container');
+        quizContainer.innerHTML = ''; // Clear existing content
 
         quizData.questions.forEach((question, index) => {
             const questionElement = createQuestionElement(question, index);
-            const additionalContextElement = createAdditionalContextElement();
-            addOptionClickHandlers(question, questionElement, additionalContextElement);
             quizContainer.appendChild(questionElement);
-            quizContainer.appendChild(additionalContextElement);
         });
     }
 
@@ -72,6 +72,9 @@ document.addEventListener('DOMContentLoaded', async function () {
                 ${question.options.map((option, i) => `<li data-index="${i}">${String.fromCharCode(65 + i)}. ${option}</li>`).join('')}
             </ul>
         `;
+        const additionalContextElement = createAdditionalContextElement();
+        questionElement.appendChild(additionalContextElement);
+        addOptionClickHandlers(question, questionElement, additionalContextElement);
         return questionElement;
     }
 
@@ -100,46 +103,20 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         if (selectedOptionIndex === correctOption) {
             selectedOption.style.color = 'green';
-            additionalContextElement.textContent = context;
             correctAnswersCount++;
         } else {
             selectedOption.style.color = 'red';
-            const correctOptionElement = selectedOption.parentNode.querySelector(`li[data-index="${correctOption}"]`);
+            const correctOptionElement = questionElement.querySelector(`li[data-index="${correctOption}"]`);
             correctOptionElement.style.color = 'green';
-            additionalContextElement.textContent = context;
         }
 
+        additionalContextElement.textContent = context;
         answeredQuestionsCount++;
         questionElement.classList.add('answered');
 
         if (answeredQuestionsCount === quizData.questions.length) {
             displayResultMessage(correctAnswersCount, quizData.questions.length);
         }
-    }
-
-    function resetQuiz() {
-        const resultMessage = quizContainer.querySelector('.result-message');
-        if (resultMessage) {
-            quizContainer.removeChild(resultMessage);
-        }
-
-        correctAnswersCount = 0;
-        answeredQuestionsCount = 0;
-
-        const questions = quizContainer.querySelectorAll('.question');
-        questions.forEach(question => {
-            question.classList.remove('answered');
-        });
-
-        const options = quizContainer.querySelectorAll('.question li');
-        options.forEach(option => {
-            option.style.color = '';
-        });
-
-        const additionalContextElements = quizContainer.querySelectorAll('.additionalcontext');
-        additionalContextElements.forEach(element => {
-            element.textContent = '';
-        });
     }
 
     function displayResultMessage(correctCount, totalCount) {
@@ -149,10 +126,18 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         const resetButton = document.createElement('button');
         resetButton.textContent = 'Reset Quiz';
-        resetButton.addEventListener('click', resetQuiz);
+        resetButton.addEventListener('click', () => {
+            resetQuiz();
+        });
         resultMessage.appendChild(resetButton);
 
         quizContainer.appendChild(resultMessage);
+    }
+
+    function resetQuiz() {
+        correctAnswersCount = 0;
+        answeredQuestionsCount = 0;
+        initializeQuizUI();
     }
 
     // Logic to handle quiz selection
@@ -165,12 +150,4 @@ document.addEventListener('DOMContentLoaded', async function () {
         const quizList = await fetchQuizList();
         updateQuizGallery(quizList);
     }
-
-    // Event delegation for handling quiz selection
-    document.querySelector('.quiz-gallery').addEventListener('click', (event) => {
-        if (event.target.classList.contains('take-quiz-btn')) {
-            const quizFilename = event.target.getAttribute('data-quizfile');
-            window.location.href = 'quiz.html?quiz=' + quizFilename;
-        }
-    });
 });
