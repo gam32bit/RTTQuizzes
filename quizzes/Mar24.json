@@ -10,7 +10,7 @@
           {"text": "5", "id": "d"}
         ],
         "correctOption": 2,
-        "context": "Board Chair Lynda Fairman, Vice Chair Kimberly Goodwin, and board member Zoran Pajevic are all affiliated with the <a href='https://www.wavy.com/news/local-news/york-county/dozens-speak-out-about-concerns-with-new-york-county-school-board-leadership/'>York County Poquoson Constitutional Militia.</a> Supporters of this militia have intimidated attendees of a sex education event and attempted to obtain teacher addresses."
+        "context": "Board Chair Lynda Fairman, Vice Chair Kimberly Goodwin, and board member Zoran Pajevic are all affiliated with the <a href='https://www.wavy.com/news/local-news/york-county/dozens-speak-out-about-concerns-with-new-york-county-school-board-leadership/'>York County Poquoson Constitutional Militia.</a> Supporters of this militia have intimidated attendees of a sex education event and attempted to obtain teacher addresses who criticized the affiliated board members."
       },
       {
         "question": "How many of the 138 animal shelters in Virginia are no-kill shelters?",
@@ -43,7 +43,7 @@
           "$2.2 billion"
         ],
         "correctOption": 3,
-        "context": "The city of D.C. reached a deal with the teams' ownership for a $515 million publicly funded arena instead."
+        "context": "The city of DC reached a deal with the teams' ownership for a $515 million publicly funded arena instead."
       },
       {
         "question": "Head W&M Basketball Coach Dane Fischer was fired this month. What was the team's record over his tenure?",
@@ -54,7 +54,7 @@
           "80-35"
         ],
         "correctOption": 0,
-        "context": "W&M recently announced it was hiring Cornell Big Red coach Brian Earl as the new head coach."
+        "context": "W&M recently announced it was hiring Cornell Big Red coach Brian Earl as the new W&M head coach."
       },
       {
         "question": "The feasibility study commissioned by the city of Williamsburg to explore the possibility of splitting from its current joint school division with James City County was published this month. The report showed that JCC students outperformed Williamsburg students by what percent on Standards of Learning tests for reading?",
@@ -87,10 +87,10 @@
           "Moving the President Heads near the complex"
         ],
         "correctOption": 0,
-        "context": "The application included plans for 500 multifamily residential rental units, townhomes, retail, and office space near the sports complex, which sparked community opposition."
+        "context": "The withdrawn application included plans for 500 multifamily residential rental units, townhomes, retail, and office space near the sports complex, which sparked community opposition."
       },
       {
-        "question": "The local Commonwealth's Attorney announced a decision on whether to charge Colonial Williamsburg Foundation CEO Cliff Fleet. What was the potential charge?",
+        "question": "The local Commonwealth's Attorney announced he had decided on whether to charge Colonial Williamsburg Foundation CEO Cliff Fleet. What is the potential charge?",
         "options": [
           "Speeding",
           "Hitting a William & Mary student with his car",
