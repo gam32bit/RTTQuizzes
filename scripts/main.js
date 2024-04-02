@@ -118,9 +118,9 @@ document.addEventListener('DOMContentLoaded', async function () {
         if (questionElement.classList.contains('answered')) {
             return;
         }
-
+    
         const selectedOptionIndex = parseInt(selectedOption.getAttribute('data-index'), 10);
-
+    
         if (selectedOptionIndex === correctOption) {
             selectedOption.style.color = 'green';
             correctAnswersCount++;
@@ -129,11 +129,12 @@ document.addEventListener('DOMContentLoaded', async function () {
             const correctOptionElement = questionElement.querySelector(`li[data-index="${correctOption}"]`);
             correctOptionElement.style.color = 'green';
         }
-
-        additionalContextElement.textContent = context;
+    
+        // Use innerHTML instead of textContent to allow for HTML content
+        additionalContextElement.innerHTML = context;
         answeredQuestionsCount++;
         questionElement.classList.add('answered');
-
+    
         if (answeredQuestionsCount === quizData.questions.length) {
             displayResultMessage(correctAnswersCount, quizData.questions.length);
         }
