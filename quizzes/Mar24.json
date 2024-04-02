@@ -1,0 +1,115 @@
+{
+    "month": "March 2024",
+    "questions": [
+      {
+        "question": "How many of the 5 York County School Board members have ties to a right-wing militia?",
+        "options": [
+          {"text": "0", "id": "a"},
+          {"text": "1", "id": "b"},
+          {"text": "3", "id": "c"},
+          {"text": "5", "id": "d"}
+        ],
+        "correctOption": 2,
+        "context": "Board Chair Lynda Fairman, Vice Chair Kimberly Goodwin, and board member Zoran Pajevic are all affiliated with the York-Poquoson Constitutional Militia. Supporters of this militia have intimidated attendees of a sex education event and attempted to obtain teacher addresses."
+      },
+      {
+        "question": "How many of the 138 animal shelters in Virginia are no-kill shelters?",
+        "options": [
+          "34",
+          "55",
+          "78",
+          "109"
+        ],
+        "correctOption": 2,
+        "context": "Of the 127,139 animals that entered shelters last year, 83% were saved. Nonprofits like local Dog Rescue Flights are helping to ensure more dogs and cats are protected."
+      },
+      {
+        "question": "How much did James City County residential property values increase on average in the latest assessment?",
+        "options": [
+          "12%",
+          "21%",
+          "33%",
+          "43%"
+        ],
+        "correctOption": 1,
+        "context": "The county will be considering an effective tax rate increase of 18.06% at its upcoming April 9 meeting."
+      },
+      {
+        "question": "Gov. Youngkin's deal to move the DC-based Wizards and Capitals sports teams to northern Virginia collapsed this month. How expensive was the proposed new arena going to be in Alexandria?",
+        "options": [
+          "$1.1 billion",
+          "$1.5 billion",
+          "$1.8 billion",
+          "$2.2 billion"
+        ],
+        "correctOption": 3,
+        "context": "The city of D.C. reached a deal with the teams' ownership for a $515 million publicly funded arena instead."
+      },
+      {
+        "question": "Head W&M Basketball Coach Dane Fischer was fired this month. What was the team's record over his tenure?",
+        "options": [
+          "35-80",
+          "52-63",
+          "63-52",
+          "80-35"
+        ],
+        "correctOption": 0,
+        "context": "W&M recently announced it was hiring Cornell Big Red coach Brian Earl as the new head coach."
+      },
+      {
+        "question": "The feasibility study commissioned by the city of Williamsburg to explore the possibility of splitting from its current joint school division with James City County was published this month. The report showed that JCC students outperformed Williamsburg students by what percent on Standards of Learning tests for reading?",
+        "options": [
+          "5%",
+          "8%",
+          "10%",
+          "12%"
+        ],
+        "correctOption": 3,
+        "context": "JCC students from third grade to high school had a combined pass rate of 77% compared to Williamsburg students 65%, with similar gaps for math and science."
+      },
+      {
+        "question": "Comments made by WJCC School Board Member Michael Hosang were rebuked by multiple school officials this month. What did he say?",
+        "options": [
+          "He insinuated that students who do not speak English were not legal citizens",
+          "He claimed that public education should only be for U.S. citizens",
+          "He proposed that non-English speaking students should be segregated from others",
+          "All of the above"
+        ],
+        "correctOption": 3,
+        "context": "Vice Chair Andrea Donnor correctly identified these comments as racist, because they discriminate against students based on the language they speak, which is often related to their ethnicity or national origin."
+      },
+      {
+        "question": "The Colonial Williamsburg Foundation withdrew a rezoning application related to the new regional sports complex after community protests. Which part of the application caused controversy?",
+        "options": [
+          "Building housing near the complex",
+          "Building pools near the complex",
+          "Building additional basketball courts",
+          "Moving the President Heads near the complex"
+        ],
+        "correctOption": 0,
+        "context": "The application included plans for 500 multifamily residential rental units, townhomes, retail, and office space near the sports complex, which sparked community opposition."
+      },
+      {
+        "question": "The local Commonwealth's Attorney announced a decision on whether to charge Colonial Williamsburg Foundation CEO Cliff Fleet. What was the potential charge?",
+        "options": [
+          "Speeding",
+          "Hitting a William & Mary student with his car",
+          "Culpability in cigarette-related deaths",
+          "Public Indecency"
+        ],
+        "correctOption": 1,
+        "context": "Rosemary Raynal, the student injured, suffered brain trauma and multiple fractures. The decision on charges is expected to be announced before May 22."
+      },
+      {
+        "question": "The Bray School, the oldest Black school in the US, is nearing its grand reopening to the public. How many students attended the school when it was operational in the 18th century?",
+        "options": [
+          "100-200",
+          "200-300",
+          "300-400",
+          "400-500"
+        ],
+        "correctOption": 2,
+        "context": "The grand reopening in September follows renovation work that began in 2020, marking the 250th anniversary since the school's closure."
+      }
+    ]
+}
